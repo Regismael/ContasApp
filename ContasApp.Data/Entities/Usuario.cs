@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace ContasApp.Data.Entities
+{
+    /// <summary>
+    /// Classe de modelo de entidade para usuario
+    /// </summary>
+    public class Usuario
+    {
+        #region Atributos
+
+        private Guid _id;
+        private string? _nome;
+        private string? _email;
+        private string? _senha;
+        private DateTime _dataHoraCriacao;
+
+        #endregion
+
+        #region Propiedades
+
+        public Guid Id
+        { 
+            get => _id; 
+            set => _id = value;
+        }
+        public string? Nome 
+        { 
+            get => _nome;
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new ArgumentException
+                        ("Insira um nome válido.");
+
+                var regex = new Regex("^[]{}$");
+                if (!regex.IsMatch(value))
+                    throw new ArgumentException
+                        ("");
+
+                _nome = value;
+            } 
+        }
+        public string? Email 
+        { 
+            get => _email;
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new ArgumentException
+                        ("");
+
+                _email = value;
+            } 
+        }
+        public string? Senha 
+        { 
+            get => _senha; 
+            set => _senha = value;
+        }
+        public DateTime DataHoraCriacao
+        {
+            get => _dataHoraCriacao; 
+            set => _dataHoraCriacao = value; 
+        }
+
+        #endregion
+    }
+}
