@@ -61,7 +61,7 @@ namespace ContasApp.Data.Repositories
 
             }
         }
-        public void Delete(Usuario usuario)
+        public void Delete(Usuario usuario) 
         {
             var query = @"
 
