@@ -1,0 +1,33 @@
+﻿@{ 
+Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5>Consulta de contas</h5>
+<p>Informe um período de datas para consultar suas contas:</p>
+<hr />
+
+<form>
+    <div class="row mb-2">
+        <div class="col">
+            <input type="date" class="form-control" />
+        </div>
+
+        <div class="col">
+            <input type="date" class="form-control" />
+        </div>
+
+        <div class="col">
+            <input type="checkbox" checked/> Contas a receber
+        </div>
+
+         <div class="col">
+            <input type="checkbox" checked /> Contas a pagar
+        </div>
+
+        <div class="col">
+            <input type="submit" class="btn btn-success" value="Pesquisar Contas" />
+        </div>
+
+    </div>
+
+</form>

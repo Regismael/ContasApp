@@ -1,61 +1,65 @@
-﻿@model ContasApp.Presentation.Models.AccountRegisterViewModel
+﻿@* Definindo a classe Model para capturar os campos do formulário desta página *@
+@model ContasApp.Presentation.Models.AccountRegisterViewModel
 
 @{
-    //defininfo o layout da página
+    //definindo o layout da página
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
 <div class="text-center">
-    <h4>Criar conta de usuário!</h4>
+    <h4>Criar Conta de Usuário</h4>
     <p>Informe os seus dados para criar uma conta de usuário e acessar o sistema.</p>
-    <hr />
+    <hr/>
 </div>
 
-<div class="mb-2 text-center" >
+<div class="mb-2 text-center">
     <strong>@TempData["Mensagem"]</strong>
 </div>
 
 @using (Html.BeginForm())
 {
-    <div class="mb-2">
-        <label>Informe seu nome completo:</label>
-        @Html.TextBoxFor(model => model.Nome, new { @class="form-control", @placeholder ="Ex: João da Silva Junior" })
-        <span class="text-danger">
+        <div class="mb-2">
+            <label>Informe seu nome completo:</label>
+        @Html.TextBoxFor(model => model.Nome,
+            new { @class = "form-control", @placeholder = "Ex: João da Silva" })
+            <span class="text-danger">
             @Html.ValidationMessageFor(model => model.Nome)
-        </span>
-    </div>
+            </span>
+        </div>
 
-    <div class="mb-2">
-        <label>Informe seu email:</label>
-        @Html.TextBoxFor(model => model.Email, new { @class="form-control", @placeholder="Ex: joaosilva@gmail.com" })
-        <span class="text-danger">
+        <div class="mb-2">
+            <label>Informe seu email:</label>
+        @Html.TextBoxFor(model => model.Email, 
+            new { @class = "form-control", @placeholder = "Ex: joaosilva@gmail.com" })
+            <span class="text-danger">
             @Html.ValidationMessageFor(model => model.Email)
-        </span>
-    </div>
+            </span>
+        </div>
 
-    <div class="mb-2">
-        <label>Informe sua senha:</label>
-        @Html.PasswordFor(model => model.Senha, new { @class="form-control" })
-        <span class="text-danger">
+        <div class="mb-2">
+            <label>Informe sua senha:</label>
+        @Html.PasswordFor(model => model.Senha, new { @class = "form-control"})
+            <span class="text-danger">
             @Html.ValidationMessageFor(model => model.Senha)
-        </span>
-    </div>
+            </span>
+        </div>
 
-    <div class="mb-2">
-        <label>Confirme sua senha:</label>
-        @Html.PasswordFor(model => model.SenhaConfirm, new { @class="form-control" })
-        <span class="text-danger">
+        <div class="mb-2">
+            <label>Confirme sua senha:</label>
+        @Html.PasswordFor(model => model.SenhaConfirm, new { @class = "form-control" })
+            <span class="text-danger">
             @Html.ValidationMessageFor(model => model.SenhaConfirm)
-        </span>
-    </div>
+            </span>
+        </div>
 
-    <div class="mb-2">
-        <input type="submit" class="btn btn-primary" value="Realizar Cadastro" />
-    </div>
+        <div class="mb-2 d-grid">
+            <input type="submit" class="btn btn-primary" value="Realizar Cadastro"/>
+        </div>
 
-    <div class="mb-2 texte center">
-        Já possui conta?
-        <a href="/Account/Login">Acesse aqui!</a>
-    </div>
+        <div class="mb-2 text-center">
+            Já possui conta? 
+            <a href="/Account/Login">Acesse aqui!</a>
+        </div>
 
 }
+
